@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'menu.dart';
+import 'create_product_page.dart';
 
 void main() {
   runApp(const FootballShopApp());
@@ -31,7 +32,42 @@ class HomePage extends StatelessWidget {
         title: const Text('Tim Tarkam Shop'),
         centerTitle: true,
       ),
-      body: const MenuPage(), // halaman utama dipecah ke file menu.dart
+      drawer: Drawer(
+        child: ListView(
+          children: [
+            const DrawerHeader(
+              decoration: BoxDecoration(color: Colors.blue),
+              child: Center(
+                child: Text(
+                  'Menu Navigasi',
+                  style: TextStyle(color: Colors.white, fontSize: 20),
+                ),
+              ),
+            ),
+            ListTile(
+              leading: const Icon(Icons.home),
+              title: const Text('Halaman Utama'),
+              onTap: () {
+                Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(builder: (context) => const HomePage()),
+                );
+              },
+            ),
+            ListTile(
+              leading: const Icon(Icons.add_box),
+              title: const Text('Tambah Produk'),
+              onTap: () {
+                Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(builder: (context) => const CreateProductPage()),
+                );
+              },
+            ),
+          ],
+        ),
+      ),
+      body: const MenuPage(),
     );
   }
 }

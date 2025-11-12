@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'create_product_page.dart';
 
 class MenuPage extends StatelessWidget {
   const MenuPage({Key? key}) : super(key: key);
@@ -82,7 +83,10 @@ class MenuPage extends StatelessWidget {
           // Tombol Create Product
           ElevatedButton.icon(
             onPressed: () {
-              _showSnackBar(context, 'Kamu telah menekan tombol Create Product');
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const CreateProductPage()),
+              );
             },
             icon: const Icon(Icons.add_box),
             label: const Padding(
